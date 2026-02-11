@@ -9,8 +9,9 @@ pipeline {
     stages {
         stage('Compile and Test') {
             steps {
-                // On utilise 'sh' pour Linux. Si Jenkins est sur Windows, utilisez 'bat'
-                sh 'mvn clean install -DskipTests'
+                dir('student-management') {
+                    sh 'mvn clean install -DskipTests'
+                }
             }
         }
     }
